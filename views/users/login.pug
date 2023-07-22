@@ -1,0 +1,34 @@
+extends ../layouts/auth_layout.pug
+
+block content
+        .card.authcard.col-md-6.login-image.d-flex.align-items-center.justify-content-center
+          img.img-fluid.d-flex.align-items-center(src='/static/img/login_page.svg' alt='...')
+        .col-md-6.p-4
+          .p-5.d-flex.justify-content-center
+            .logo-details.d-flex.align-items-center
+              img.img-fluid.d-flex.align-items-center(src='/static/img/logo.png' alt='...')
+              
+          .card-body
+            include ../layouts/components/flash.pug
+            h4.mb-4 Sign In -
+            form.user(method="POST", action='/user_login')
+              .form-group.form-floating.mb-3
+                input#InputEmail.form-control.form-control-user(type='email' aria-describedby='emailHelp' placeholder='Enter Email Address...' name='email')
+                label(for="InputEmail") Email ID
+              .form-group.form-floating.mb-3
+                input#InputPassword.form-control.form-control-user(type='password' placeholder='Password' name='password')
+                label(for='InputPassword') Password
+              .form-group
+                .custom-control.custom-checkbox.small
+                  input#customCheck.custom-control-input(type='checkbox')
+                  label.custom-control-label.p-1(for='customCheck')
+                    | Remember Me
+              .d-flex.justify-content-end 
+                button.btn.btn-user.btn-block.ml-auto.px-4.text-light(type='submit')
+                  | LOGIN
+              hr
+            .text-center
+              a.smallfont(href='/forget-password') Forgot Password?
+            .text-center
+              a.smallfont(href='/register') Create an Account? 
+                span.fw-bold SignUp!

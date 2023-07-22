@@ -1,0 +1,109 @@
+section.bg-title-page.p-t-50.p-b-40.flex-col-c-m(style="background-image: url(static/images/heading-pages-02.jpg);")
+ 
+    
+section.bgwhite.p-t-55.p-b-65 
+  .container
+    .row
+      .col-sm-6.col-md-4.col-lg-3.p-b-50
+        .leftbar.p-r-20.p-r-0-sm
+          h4.m-text14.p-b-7.
+            Categories
+            
+            
+          ul.p-b-54
+            li.p-t-4
+              a.s-text13.active1(href="#" onclick="onCategoryChange('All')").
+                
+                All
+                
+            li.p-t-4
+              a.s-text13(href="#" onclick="onCategoryChange('Processor')").
+                
+                Processor
+                
+            li.p-t-4
+              a.s-text13(href="#" onclick="onCategoryChange('GraphicsCard')").
+                
+                Graphics Card
+                
+            li.p-t-4
+              a.s-text13(href="#" onclick="onCategoryChange('Ram')").
+                
+                Ram
+                
+            li.p-t-4
+              a.s-text13(href="#" onclick="onCategoryChange('Accesories')").
+                
+                Accesories
+                
+          h4.m-text14.p-b-32.
+            
+            Filters
+            
+          .filter-price.p-t-22.p-b-50.bo3
+            .m-text15.p-b-17.
+              
+              Price 
+            .flex-sb-m.flex-w
+              .w-size11
+                input(type="range" min="0" max="100000" value=priceRange step="1000" oninput="onPriceRangeChange(event)")
+                |  ₹
+                span#value-upper #{priceRange}
+                select.selection-2.m-t-10.m-b-10(name="sorting" onchange="onSortOrderChange(event)")
+                  option(selected disabled) Default Sorting
+                  option(value="asc") Price: low to high
+                  option(value="dec") Price: high to low
+                button.flex-c-m.size4.bg7.bo-rad-15.hov1.s-text14.trans-0-4.m-t-10(onclick="applyFilter()").
+                  Filter
+              
+              
+      .col-sm-6.col-md-8.col-lg-9.p-b-50
+        .flex-sb-m.flex-w.p-b-35
+          .flex-w
+        .row
+         each row, index in product      
+          .col-sm-12.col-md-6.col-lg-4.p-b-50
+            .block2
+              .block2-img.wrap-pic-w.of-hidden.pos-relative.block2-labelnew
+                img(src="static/uploads/" + row.Image, alt="IMG-PRODUCT")
+                .block2-overlay.trans-0-4
+                  a.block2-btn-addwishlist.hov-pointer.trans-0-4(href="#")
+                    i.icon-wishlist.icon_heart_alt(aria-hidden="true")
+                    i.icon-wishlist.icon_heart.dis-none(aria-hidden="true")
+                  .block2-btn-addcart.w-size1.trans-0-4
+                    a.button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4(href=`/add-Cart${row.ProductId}`).
+                      
+                      Add to Cart
+                      
+              .block2-txt.p-t-20
+                a.block2-name.dis-block.s-text3.p-b-5(href=`/product-detail${row.ProductId}`).
+                  
+                 #{row.ProductName}
+                  
+                span.block2-price.m-text6.p-r-5.
+                  
+                 INR #{row.ProductPrice}
+script.
+  let url;
+  url = new URL(location.href);
+
+  function onPriceRangeChange(e){
+    url.searchParams.set('priceRange', e.target.value);
+    document.querySelector("#value-upper").innerText = e.target.value;
+  }
+
+  function onSortOrderChange(e){
+    url.searchParams.set('order', e.target.value);
+  }
+
+  function onCategoryChange(category){
+    url.searchParams.set('category', category);
+    window.location.href = url.href;
+  }
+
+  function applyFilter(){
+    window.location.href = url.href;
+  }
+
+
+  

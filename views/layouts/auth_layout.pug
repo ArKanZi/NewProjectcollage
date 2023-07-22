@@ -1,0 +1,19 @@
+
+doctype html
+html
+    head
+        title Computer Parts - #{title}
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='/static/vendor/bootstrap1/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/static/css/sidebar.css')
+        link(rel='stylesheet', href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css')
+        block styles        
+    body.bg-color
+        .container.vh-100.d-md-flex.align-items-center.login-page    
+            .card.authcard.flex-fill.shadow-lg
+                .row.g-0        
+                    block content
+            script(src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js")
+            script(src="/static/js/sidebar.js")
+            block scripts
+

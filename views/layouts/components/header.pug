@@ -1,0 +1,104 @@
+header.header1
+  .container-menu-header
+    .wrap_header
+      a.logo(href="/")
+        img(src="static/images/icons/logo.png", alt="IMG-LOGO")
+      .wrap_menu
+        nav.menu
+          ul.main_menu
+            li
+              a(href="/") Home
+            li
+              a(href="/shop") Shop
+            li 
+              a(href="/product-add") Add Product
+            li
+              a(href="/about") About
+            li
+              a(href="/contact") Contact
+      .header-icons
+        a.header-wrapicon1.dis-block(href="#")
+          img.header-icon1.mr-1(src="static/images/icons/icon-header-01.png", alt="ICON")
+          | #{user.FirstName} #{user.LastName}
+        span.linedivide1
+        .header-wrapicon2
+          img.header-icon1.js-show-header-dropdown(src="static/images/icons/icon-header-02.png", alt="ICON")
+          span.header-icons-noti 0
+          .header-cart.header-dropdown
+            ul.header-cart-wrapitem
+            each row in cart 
+              li.header-cart-item
+                .header-cart-item-img
+                  img(src="static/uploads/" + row.Image, alt="IMG-PRODUCT")
+                .header-cart-item-txt
+                  a.header-cart-item-name(href="#").
+                    
+                  | #{row.ProductName}
+                    
+                  span.header-cart-item-info.
+                    
+                  |  INR #{row.ProductPrice}
+
+            .header-cart-buttons
+              .header-cart-wrapbtn
+                a.flex-c-m.size1.bg1.bo-rad-20.hov1.s-text1.trans-0-4(href="/cart").
+                  
+                  View Cart
+                  
+              .header-cart-wrapbtn
+                a.flex-c-m.size1.bg1.bo-rad-20.hov1.s-text1.trans-0-4(href="#").
+                  
+                  Check Out
+                  
+  .wrap_header_mobile
+    a.logo-mobile(href="/")
+      img(src="static/images/icons/logo.png", alt="IMG-LOGO")
+    .btn-show-menu
+      .header-icons-mobile
+        a.header-wrapicon1.dis-block(href="#")
+          img.header-icon1(src="static/images/icons/icon-header-01.png", alt="ICON")
+        span.linedivide2
+        .header-wrapicon2
+          img.header-icon1.js-show-header-dropdown(src="static/images/icons/icon-header-02.png", alt="ICON")
+          span.header-icons-noti 0
+          .header-cart.header-dropdown
+            ul.header-cart-wrapitem
+              
+              li.header-cart-item
+                .header-cart-item-img
+                  img(src="static/uploads/" + Image, alt="IMG-PRODUCT")
+                .header-cart-item-txt
+                  a.header-cart-item-name(href="#").
+                    
+                     product name
+                    
+                  span.header-cart-item-info.
+                    
+                    Product Price
+              
+            .header-cart-buttons
+              .header-cart-wrapbtn
+                a.flex-c-m.size1.bg1.bo-rad-20.hov1.s-text1.trans-0-4(href="/cart").
+                  
+                  View Cart
+                  
+              .header-cart-wrapbtn
+                a.flex-c-m.size1.bg1.bo-rad-20.hov1.s-text1.trans-0-4(href="#").
+                  
+                  Check Out
+                  
+      .btn-show-menu-mobile.hamburger.hamburger--squeeze
+        span.hamburger-box
+          span.hamburger-inner
+  .wrap-side-menu
+    nav.side-menu
+      ul.main-menu
+        li.item-menu-mobile
+          a(href="/") Home
+          i.arrow-main-menu.fa.fa-angle-right(aria-hidden="true")
+        li.item-menu-mobile
+          a(href="/shop") Shop
+        li.item-menu-mobile
+          a(href="/about") About
+        li.item-menu-mobile
+          a(href="/contact") Contact

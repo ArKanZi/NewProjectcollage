@@ -1,0 +1,40 @@
+extends ../layouts/auth_layout.pug
+
+block content
+        .card.authcard.col-md-6.login-image.d-flex.align-items-center.justify-content-center
+          img.img-fluid.d-flex.align-items-center(src='/static/img/signup.svg' alt='...')
+        .col-md-6.p-4
+          .p-4.d-flex.justify-content-center
+            .logo-details.d-flex.align-items-center
+              img.img-fluid.d-flex.align-items-center(src='/static/img/logo.png' alt='...')
+          .card-body
+            h4.mb-4 Sign Up -
+            form.user(method="POST", action='/create-user')
+              .form-group.form-floating.mb-3
+                input#InputEmail.form-control.form-control-user(type='text' aria-describedby='emailHelp' placeholder='Enter Your First Name' name='firstName')
+                label(for="InputEmail") First Name
+              .form-group.form-floating.mb-3
+                input#InputEmail.form-control.form-control-user(type='text' aria-describedby='emailHelp' placeholder='Enter Your Last Name' name='lastName')
+                label(for="InputEmail") Last Name
+              .form-group.form-floating.mb-3
+                input#InputEmail.form-control.form-control-user(type='email' aria-describedby='emailHelp' placeholder='Enter Email Address...' name='email')
+                label(for="InputEmail") Email ID
+              .form-group.form-floating.mb-3
+                input#InputPassword.form-control.form-control-user(type='password' placeholder='Password' name='password')
+                label(for='InputPassword') Password
+              .form-group.form-floating.mb-3
+                input#InputConfirmPassword.form-control.form-control-user(type='password' placeholder='Confirm Password' name='confirmPassword')
+                label(for='InputConfirmPassword') Confirm Password
+              .form-group
+                .custom-control.custom-checkbox.small
+                  input#customCheck.custom-control-input(type='checkbox')
+                  label.custom-control-label.p-1(for='customCheck')
+                    | I accept the 
+                  a(href="#") terms & conditions 
+              .d-flex.justify-content-end 
+                button.btn.btn-user.btn-block.ml-auto.px-4.text-light.mt-2(type='submit')
+                  | SIGN UP
+              hr
+            .text-center
+              a.smallfont(href='/login') Already have an account? 
+                span.fw-bold Login!

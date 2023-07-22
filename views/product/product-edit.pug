@@ -1,0 +1,27 @@
+extends ../layouts/main_layout.pug
+
+block content
+    .row
+      .col-lg-4
+        .card.shadow-sm
+          .card-header Create Product
+          .card-body
+            //=JSON.stringify(product)
+            form(method="POST", action="/createProduct", enctype="multipart/form-data")
+                .form-group
+                    input.form-control(name="ProductName", type="text", placeholder="Product Name", required)
+                .form-group
+                    input.form-control(name="ProductPrice", type="number", placeholder="Product price")
+                .form-group
+                    input.form-control(name="ProductQuantity", type="number", placeholder="Product Quantity")
+                .form-group
+                    input.form-control(name="Image", type="file", placeholder="Product Image")
+                .form-group
+                    input.form-control(name="Description", type="text", placeholder="Product Description")
+                button.btn.btn-primary.btn-sm Create
+                button.btn.btn-secondary.btn-sm.ml-2 Cancel
+
+                    
+                
+
+
